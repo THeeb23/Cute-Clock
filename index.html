@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cute Clock</title>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: #ffeefb;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Baloo 2', cursive;
+    }
+    .clock {
+      background: #fff0f6;
+      border: 6px solid #ffb3d9;
+      border-radius: 30px;
+      padding: 30px 60px;
+      box-shadow: 0 10px 30px rgba(255, 182, 193, 0.4);
+      font-size: 3em;
+      color: #ff69b4;
+    }
+  </style>
+</head>
+<body>
+  <div class="clock" id="clock">--:--:--</div>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const hours = now.getHours().toString().padStart(2, '0');
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      const seconds = now.getSeconds().toString().padStart(2, '0');
+      document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+</body>
+</html>
